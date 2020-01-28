@@ -27,21 +27,21 @@ public class BindSampleController {
         JsugPropsBinder binder = new JsugPropsBinder();
         return Binder.get(environment)
                 .bind("jsug.props-binder-simple", Bindable.ofInstance(binder))
-                .orElseThrow(IllegalStateException::new);
+                .get();
     }
 
     @GetMapping("/bind")
     public JsugPropsBinder bind() {
         return Binder.get(environment)
                 .bind("jsug.props-binder-simple", Bindable.of(JsugPropsBinder.class))
-                .orElseThrow(IllegalStateException::new);
+                .get();
     }
 
     @GetMapping("/bind-listof")
     public List<JsugPropsBinder> bindListOf() {
         return Binder.get(environment)
                 .bind("jsug.props-binder", Bindable.listOf(JsugPropsBinder.class))
-                .orElseThrow(IllegalStateException::new);
+                .get();
     }
 
     @GetMapping("/merging-types")
