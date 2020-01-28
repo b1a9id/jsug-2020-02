@@ -8,24 +8,22 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.b1a9idps.boot2versionup.binder.JsugPropsBeanBinder;
 import com.b1a9idps.boot2versionup.binder.JsugPropsBinder;
 
 @RestController
 public class BindSampleController {
 
     private final Environment environment;
-    private final JsugPropsBeanBinder jsugPropsBeanBinder;
 
-    public BindSampleController(Environment environment, JsugPropsBeanBinder jsugPropsBeanBinder) {
+    public BindSampleController(Environment environment) {
         this.environment = environment;
-        this.jsugPropsBeanBinder = jsugPropsBeanBinder;
     }
 
-    @GetMapping("/bind-existing-bean")
-    public JsugPropsBeanBinder bindExistingBean() {
+    @GetMapping("/bind-instance")
+    public JsugPropsBinder bindExistingBean() {
+        JsugPropsBinder binder = new JsugPropsBinder();
         return Binder.get(environment)
-                .bind("jsug.props-bean", Bindable.ofInstance(jsugPropsBeanBinder))
+                .bind("jsug.props-instance", Bindable.ofInstance(binder))
                 .orElseThrow(IllegalStateException::new);
     }
 

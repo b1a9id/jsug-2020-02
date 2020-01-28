@@ -6,7 +6,7 @@ jsug:
   - speaker-names: tommy, kawaguchi, uchitate
     theme: SpringBoot2
     date: 2020-02-12
-  props-bean:
+  props-instance:
     speaker-names: tommy, kawaguchi, uchitate
     theme: SpringBoot2
     date: 2020-02-12
