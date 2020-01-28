@@ -10,3 +10,16 @@ jsug:
     speaker-names: tommy, kawaguchi, uchitate
     theme: SpringBoot2
     date: 2020-02-12
+  props:
+    list:
+      - name: uchitate
+        theme: SpringBoot2
+
+---
+spring:
+  profiles: dev
+jsug:
+  props:
+    list:
+      - name: uchitate-dev
+        theme: SpringBoot2-dev
