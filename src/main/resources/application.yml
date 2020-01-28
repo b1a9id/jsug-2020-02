@@ -1,12 +1,12 @@
 jsug:
-  props:
+  props-binder:
   - speaker-names: nagasawa, kihara
     theme: Spring×Kotlin
     date: 2020-01-27
   - speaker-names: tommy, kawaguchi, uchitate
     theme: SpringBoot2
     date: 2020-02-12
-  props-simple:
+  props-binder-simple:
     speaker-names: tommy, kawaguchi, uchitate
     theme: SpringBoot2
     date: 2020-02-12

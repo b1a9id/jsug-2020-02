@@ -23,21 +23,21 @@ public class BindSampleController {
     public JsugPropsBinder bindExistingBean() {
         JsugPropsBinder binder = new JsugPropsBinder();
         return Binder.get(environment)
-                .bind("jsug.props-simple", Bindable.ofInstance(binder))
+                .bind("jsug.props-binder-simple", Bindable.ofInstance(binder))
                 .orElseThrow(IllegalStateException::new);
     }
 
     @GetMapping("/bind")
     public JsugPropsBinder bind() {
         return Binder.get(environment)
-                .bind("jsug.props-simple", Bindable.of(JsugPropsBinder.class))
+                .bind("jsug.props-binder-simple", Bindable.of(JsugPropsBinder.class))
                 .orElseThrow(IllegalStateException::new);
     }
 
     @GetMapping("/bind-listof")
     public List<JsugPropsBinder> bindListOf() {
         return Binder.get(environment)
-                .bind("jsug.props", Bindable.listOf(JsugPropsBinder.class))
+                .bind("jsug.props-binder", Bindable.listOf(JsugPropsBinder.class))
                 .orElseThrow(IllegalStateException::new);
     }
 }
