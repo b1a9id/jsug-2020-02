@@ -23,14 +23,14 @@ public class BindSampleController {
     public JsugPropsBinder bindExistingBean() {
         JsugPropsBinder binder = new JsugPropsBinder();
         return Binder.get(environment)
-                .bind("jsug.props-instance", Bindable.ofInstance(binder))
+                .bind("jsug.props-simple", Bindable.ofInstance(binder))
                 .orElseThrow(IllegalStateException::new);
     }
 
     @GetMapping("/bind")
-    public Integer bind() {
+    public JsugPropsBinder bind() {
         return Binder.get(environment)
-                .bind("jsug.props-simple", Bindable.of(Integer.class))
+                .bind("jsug.props-simple", Bindable.of(JsugPropsBinder.class))
                 .orElseThrow(IllegalStateException::new);
     }
 
