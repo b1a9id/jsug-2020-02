@@ -3,17 +3,19 @@ package com.b1a9idps.boot2versionup.binder;
 import java.util.List;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
 @ConfigurationProperties("jsug.props")
+@ConstructorBinding
 public class JsugProps {
 
-    private List<Jsug> list;
+    private final List<Jsug> list;
 
     public List<Jsug> getList() {
         return list;
     }
 
-    public void setList(List<Jsug> list) {
+    public JsugProps(List<Jsug> list) {
         this.list = list;
     }
 
